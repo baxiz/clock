@@ -1,5 +1,7 @@
-clock
+Clock
 =====
 
-This clock uses only php and css.
+A clock that completely works on CSS.
+
+
 To show current time edit in index.php
