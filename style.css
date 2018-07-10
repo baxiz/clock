@@ -1,87 +1,79 @@
-.negro{
-position:absolute;
-top:0px;
-width:.1em;
-height:270px;
-margin-top:30px;
-background-color:#cc0000;
-border-bottom:270px solid #181818;
+.container{
+    position: relative;
+    margin: auto;
+    width:600px;
+    height:600px;
+    padding: 20px;
+    text-align:center;
+    background-color:#282828;
+    border: 10px solid #000;
+    border-radius:50%;
+    }
+    
+#second{
+    position:absolute;
+    top:0px;
+    width:2px;
+    height:260px;
+    margin-top:40px;
+    background-color:#cc0000;
+    border-bottom:260px solid #282828;
 }
-.negro1{
-position:absolute;
-top:0px;
-width:3px;
-height:225px;
-margin-top:75px;
-background-color:#b0b0b0;
-border-bottom:225px solid #181818;
+#minute{
+    position:absolute;
+    top:0px;
+    width:3px;
+    height:215px;
+    margin-top:85px;
+    background-color:#707070;
+    border-bottom:215px solid #282828;
 }
-.negro2{
-position:absolute;
-top:0px;
-width:4px;
-height:180px;
-margin-top:120px;
-background-color:#606060;
-border-bottom:180px solid #181818;
-}
-
-#dot{
-position:absolute;
-top:0px;
-margin:285px 0px 0px -13px;
-background-color:#171717;
-width:30px;
-height:30px;
-border-radius:15px;
+#hour{
+    position:absolute;
+    top:0px;
+    width:4px;
+    height:170px;
+    margin-top:130px;
+    background-color:#404040;
+    border-bottom:170px solid #282828;
 }
 
 .center{
-float:left;
-width:300px;
-height:600px;
+    position: absolute;
+    width:300px;
+    height:600px;
+    left: 320px;
 }
 
-.biggest{
-position:absolute;
-width:600px;
-height:600px;
-text-align:center;
-background-color:#181818;
-border:10px solid #000000;
-border-radius:300px;
+.number{
+    position: absolute;
+    width: 600px;
+    font-family:"Ubuntu";
+    color:#009966;
+    font-size:80px;
+    line-height:80px;
 }
-
 .number12{
-font-family:"Ubuntu";
-color:#009966;
-font-size:80px;
-margin-top:10px;
-text-align:center;
+    margin: 0;
+    text-align: center;
 }
 .number3{
-color:#009966;
-font-family:"Ubuntu";
-font-size:80px;
-margin:140px 10px 0px 0px;
-text-align:right;
+    margin-top:260px;
+    text-align: right;
 }
 .number9{
-color:#009966;
-font-family:"Ubuntu";
-margin:-85px 0px 0px 10px ;
-font-size:80px;
-text-align:left;
+    margin-top:260px;
+    text-align:left;
 }
 .number6{
-color:#009966;
-font-family:"Ubuntu";
-margin-top:170px;
-font-size:80px;
-text-align:center;
+    margin-top:520px;
+    text-align:center;
 }
 
 .switch{
-position:absolute;
-margin:-55px 0px 0px -200px;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: inline;
+    top: 100px;
 }

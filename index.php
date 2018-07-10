@@ -1,20 +1,15 @@
 <?php
-$hr=date("g")+3;
+// Get the current server time
+$hr=date("g");
 $min=date("i");
-if($min+30>60)
-{
-$min=($min+30)%60;
-$hr+=1;
-}
-else
-$min+=30;
 $sec=date("s");
 
-echo $hr,$min,$sec;
+// Calculate angles
 $anglesec=$sec*6;
 $anglemin=($min+($sec/60))*6;
 $anglehr=($hr+($min/60)+($sec/3600))*30;
 
+// Add animations from the starting angles
 echo "
 <style>
 @keyframes spin{
@@ -23,8 +18,7 @@ echo "
 	}
 }
 @-webkit-keyframes spin{
-	
-to {
+	to {
 	-webkit-transform: rotate(".($anglesec+360)."deg);
 	}
 }
@@ -49,20 +43,21 @@ to {
 	}
 }
 
-.rotate{
+.rotateSecond{
 transform: rotate(".$anglesec."deg); 
 animation-name: spin; 
+animation-duration: 60s;
 animation-iteration-count: infinite; 
 animation-timing-function: linear;
 
 -webkit-transform: rotate(".$anglesec."deg); 
 -webkit-animation-name: spin; 
--webkit-animation-duration: 0s;
+-webkit-animation-duration: 60s;
 -webkit-animation-iteration-count: infinite; 
 -webkit-animation-timing-function: linear;
 }
 
-.rotate1{
+.rotateMinute{
 transform: rotate(".$anglemin."deg); 
 animation-name: spin1; 
 animation-duration: 3600s;
@@ -76,7 +71,7 @@ animation-timing-function: linear;
 -webkit-animation-timing-function: linear;
 }
 
-.rotate2{
+.rotateHour{
 transform: rotate(".$anglehr."deg); 
 animation-name: spin2; 
 animation-duration: 43200s;
@@ -89,124 +84,36 @@ animation-timing-function: linear;
 -webkit-animation-iteration-count: infinite; 
 -webkit-animation-timing-function: linear;
 }
-
-
-
-@keyframes spin0{
-	to {
-	transform: rotate(".$anglesec."deg);
-	}
-}
-@-webkit-keyframes spin0{
-	to {
-	-webkit-transform: rotate(".$anglesec."deg);
-	}
-}
-@keyframes spin01{
-	to {
-	transform: rotate(".$anglemin."deg);
-	}
-}
-@-webkit-keyframes spin01{
-	to {
-	-webkit-transform: rotate(".$anglemin."deg);
-	}
-}
-@keyframes spin02{
-	to {
-	transform: rotate(".$anglehr."deg);
-	}
-}
-@-webkit-keyframes spin02{
-	to {
-	-webkit-transform: rotate(".$anglehr."deg);
-	}
-}
-
-.rotate0{
-animation-name: spin0; 
-animation-duration: 2s; 
-animation-timing-function: linear;
-
--webkit-animation-name: spin0; 
--webkit-animation-duration: 2s;
--webkit-animation-timing-function: linear;
-}
-.rotate01{
-animation-name: spin01; 
-animation-duration: 2s; 
-animation-timing-function: linear;
-
--webkit-animation-name: spin01; 
--webkit-animation-duration: 2s;
--webkit-animation-timing-function: linear;
-}
-.rotate02{ 
-animation-name: spin02; 
-animation-duration: 2s; 
-animation-timing-function: linear;
-
--webkit-animation-name: spin02; 
--webkit-animation-duration: 2s;
--webkit-animation-timing-function: linear;
-}
 </style>";
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>Clock !</title>
+<title>Clock using CSS</title>
 <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<div style="width:600px;margin:0 auto;">
-<div class="biggest">
-<h1 class="number12">12</h1>
-<img class="switch" src="clock.png" height="400px" width="400px"/>
-<h1 class="number3">3</h1>
-<h1 class="number9">9</h1>
-<h1 class="number6">6</h1>
+<div class="container">
 
-<div class="center"></div>
-<div class="center" style="float:left;">
-<div id="lol" class="negro2 rotate02"></div>
-<div id="lol1" class="negro1 rotate01"></div>
-<div id="lol2"class="negro rotate0"></div>
-<div id="dot"></div>
-</div>
+<!-- Display the numbers -->
+<h1 class="number number12">12</h1>
+<h1 class="number number3">3</h1>
+<h1 class="number number9">9</h1>
+<h1 class="number number6">6</h1>
+
+<!-- Display the hands -->
+<div class="center">
+<div id="hour" class="rotateHour"></div>
+<div id="minute" class="rotateMinute"></div>
+<div id="second"class="rotateSecond"></div>
 </div>
 
+<!-- Display the divisions -->
+<img class="switch" src="clock.png"/>
 </div>
-
-<script>
-setTimeout(function(){
-document.getElementById("lol").className="negro2 rotate2";
-document.getElementById("lol1").className="negro1 rotate1";
-document.getElementById("lol2").className="negro rotate";
-},2000);
-
-setTimeout{
-function()
-{
-setInterval(function()
-{
-document.getElementById("lol").style.webkitAnimationPlayState="paused";
-document.getElementById("lol1").style.webkitAnimationPlayState="paused";
-document.getElementById("lol2").style.webkitAnimationPlayState="paused";
-
-setTimeout(function(){
-document.getElementById("lol").style.webkitAnimationPlayState="running";
-document.getElementById("lol1").style.webkitAnimationPlayState="running";
-document.getElementById("lol2").style.webkitAnimationPlayState="running";
-},1000);
-
-},0);
-
-},3000);
-</script>
 
 </body>
 </html>
